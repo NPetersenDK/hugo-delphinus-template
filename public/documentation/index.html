@@ -1,61 +1,71 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
-<head>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
-    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    <title>Documentation | Delphinus Documentation</title>
+    <meta name="description" content="Documentation site using Aarhus University&#39;s Delphinus Design System">
     
-    <!-- Delphinus Design System CSS from CDN (config-tools project) -->
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@aarhus-university/au-designsystem-delphinus@1.11.6/public/projects/config-tools/style.css">
-    <!-- Custom overrides -->
-    <link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
+    
+    <link rel="stylesheet" href="/css/custom.css">
 </head>
 <body class="theme--dark body--scrollbar-dark">
     <div class="page page--navigation-sidebar-left">
-        <!-- Skip to content for accessibility -->
+        
         <aside class="page__accessibility" aria-labelledby="skip-to-content">
             <a href="#content" id="skip-to-content" class="button button--dimmed screenreader-only screenreader-only--show-on-focus">Skip to main content</a>
         </aside>
 
-        <!-- Page Header with Navigation -->
+        
         <header class="page__header">
             <nav class="nav nav--site-nav nav--has-active-item" aria-label="Main navigation">
                 <h1 class="nav__home">
-                    <a href="{{ .Site.BaseURL }}" class="nav__home__title">{{ .Site.Title }}</a>
+                    <a href="http://localhost:1313/" class="nav__home__title">Delphinus Documentation</a>
                 </h1>
                 <div class="nav__site">
-                    <div class="nav__items">
-                        {{- $docSection := .Site.GetPage "documentation" -}}
-                        {{- if $docSection -}}
-                            {{- range $docSection.Sections.ByWeight -}}
-                        <a href="{{ .RelPermalink }}" class="nav__item{{ if $.IsDescendant . }} nav__item--active{{ end }}">{{ .Title }}</a>
-                            {{- end -}}
-                        {{- end -}}
-                    </div>
+                    <div class="nav__items"><a href="/documentation/andres-dokumentation/" class="nav__item">Andres Dokumentation</a><a href="/documentation/min-dokumentation/" class="nav__item">Min Dokumentation</a></div>
                 </div>
             </nav>
         </header>
 
-        <!-- Sidebar with Local Navigation -->
+        
         <aside id="aside" class="page__sidebar-left theme--normal" aria-label="Local navigation">
-            {{ partial "sidebar.html" . }}
+            <nav class="nav nav--vertical nav--has-active-item" aria-label="Documentation navigation">
+    <div class="nav__items"><h2 class="nav__header">Andres Dokumentation</h2><a href="/documentation/andres-dokumentation/read-me/" class="nav__item">API Reference</a><h2 class="nav__header">Min Dokumentation</h2><a href="/documentation/min-dokumentation/hello-world/" class="nav__item">Hello World</a></div>
+</nav>
+
         </aside>
 
-        <!-- Main Content -->
+        
         <main class="page__content theme--normal" id="content">
             <div class="page__content__block">
-                {{ block "main" . }}{{ end }}
+                
+<h1>Documentation</h1>
+<p>Welcome to the documentation. Choose a section from the sidebar to get started.</p>
+
+
+
+<ul>
+    
+    <li><a href="/documentation/andres-dokumentation/">Andres Dokumentation</a></li>
+    
+    <li><a href="/documentation/min-dokumentation/">Min Dokumentation</a></li>
+    
+</ul>
+
+
             </div>
         </main>
 
-        <!-- Page Footer -->
+        
         <footer class="page__footer">
             <div class="page__footer__content">
                 <div class="row row--align-left">
                     <div class="row__item row__item--basis-15">
                         <h1 class="text--default-size text--pull">
-                            <strong>{{ .Site.Title }}</strong>
+                            <strong>Delphinus Documentation</strong>
                             <span class="u-avoid-wrap">Documentation</span>
                         </h1>
                         <p>
@@ -87,7 +97,7 @@
         </footer>
     </div>
     
-    <!-- Delphinus JS from CDN -->
+    
     <script src="https://cdn.jsdelivr.net/npm/@aarhus-university/au-designsystem-delphinus@1.11.6/public/projects/config-tools/js/app.min.js"></script>
 </body>
 </html>
