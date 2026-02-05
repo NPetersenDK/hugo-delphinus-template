@@ -26,5 +26,38 @@
     </div>
 
     <hr>
+
+    <!-- Blog Posts Section -->
+    <section class="blog-section">
+        <h2>Latest Posts</h2>
+        <div class="row">
+            {{- $posts := where .Site.RegularPages "Section" "posts" -}}
+            {{- range first 3 $posts.ByDate.Reverse -}}
+            <div class="row__item row__item--basis-30">
+                <article class="box theme--background-secondary blog-card">
+                    <h3 class="text--pull">
+                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    </h3>
+                    <p class="text--small text--muted">
+                        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+                        {{ with .Params.author }}· {{ . }}{{ end }}
+                    </p>
+                    <p>{{ .Description | default .Summary | truncate 120 }}</p>
+                    <a href="{{ .RelPermalink }}" class="button button--small">Read more</a>
+                </article>
+            </div>
+            {{- else -}}
+            <div class="row__item">
+                <p>No posts yet. Check back soon!</p>
+            </div>
+            {{- end -}}
+        </div>
+        
+        {{- if gt (len $posts) 3 -}}
+        <div style="margin-top: 1.5rem;">
+            <a href="{{ "posts/" | relURL }}" class="button">View all posts</a>
+        </div>
+        {{- end -}}
+    </section>
 </article>
 {{ end }}
