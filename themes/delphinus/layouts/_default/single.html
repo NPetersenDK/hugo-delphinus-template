@@ -1,7 +1,7 @@
 {{ define "main" }}
 <article>
     <header>
-        <h1>{{ .Title }}</h1>
+        <h1 data-pagefind-meta="title">{{ .Title }}</h1>
         {{ if or .Date .Params.author .Params.tags }}
         <div>
             {{ if not .Date.IsZero }}
@@ -16,4 +16,3 @@
     {{ .Content }}
 </article>
 {{ end }}
-

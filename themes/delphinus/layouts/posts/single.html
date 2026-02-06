@@ -1,7 +1,7 @@
 {{ define "main" }}
 <article class="blog-post">
     <header class="blog-post__header">
-        <h1>{{ .Title }}</h1>
+        <h1 data-pagefind-meta="title">{{ .Title }}</h1>
         <div>
             <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
             {{ with .Params.author }}· By {{ . }}{{ end }}
