@@ -3,6 +3,7 @@
 {{ .Content }}
 
 {{ if .Pages }}
+<h2>Subpages</h2>
 <ul>
     {{ range .Pages }}
     <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>

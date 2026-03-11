@@ -4,9 +4,7 @@
     {{- if $docSection -}}
         {{- range $docSection.Sections.ByWeight -}}
         <h2 class="nav__header">{{ .Title }}</h2>
-            {{- range .RegularPages.ByWeight -}}
-        <a href="{{ .RelPermalink }}" class="nav__item{{ if eq $.RelPermalink .RelPermalink }} nav__item--active{{ end }}">{{ .Title }}</a>
-            {{- end -}}
+        {{- partial "sidebar-section" (dict "section" . "current" $) -}}
         {{- end -}}
     {{- end -}}
     </div>
