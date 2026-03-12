@@ -71,12 +71,12 @@
                     <div class="row__item row__item--basis-15">
                         <h1 class="text--default-size text--pull">
                             <strong>{{ .Site.Title }}</strong>
-                            <span class="u-avoid-wrap">Documentation</span>
+                            <span class="u-avoid-wrap">{{ .Site.Params.footerSubtitle }}</span>
                         </h1>
                         <p>
-                            Powered by Hugo &amp; Delphinus Design System
+                            {{ .Site.Params.description }}
                             <br>
-                            Aarhus University
+                            {{ .Site.Params.organization }}
                         </p>
                     </div>
                     <div class="row__item row__item--basis-15">

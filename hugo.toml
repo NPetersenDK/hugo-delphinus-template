@@ -1,6 +1,6 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = 'Delphinus Documentation'
+title = 'My Hugo Title'
 theme = 'delphinus'
 
 [markup]
@@ -9,4 +9,6 @@ theme = 'delphinus'
       unsafe = true
 
 [params]
-  description = "Documentation site using Aarhus University's Delphinus Design System"
+  description = "My description"
+  footerSubtitle = "My footer subtitle"
+  organization = "Aarhus University"
